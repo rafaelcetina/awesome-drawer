@@ -40,7 +40,7 @@ const { title } = Astro.props;
     document.body.style.overflow = "hidden";
 
     document.body.style.touchAction = "none";
-    // document.body.style.userSelect = "none";
+    document.body.style.userSelect = "none";
     /*
     document.body.classList.add("forSafari");
 */
@@ -92,8 +92,8 @@ const { title } = Astro.props;
     document.body.style.overflow = activeScroll ? "auto" : "hidden";
 
     document.body.style.touchAction = activeScroll ? "auto" : "none";
-    /*
     document.body.style.userSelect = activeScroll ? "auto" : "none";
+    /*
     document.body.classList.remove("forSafari");
     */
   };
