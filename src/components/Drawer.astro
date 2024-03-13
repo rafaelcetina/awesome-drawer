@@ -35,7 +35,7 @@ const { title } = Astro.props;
 
   // Sets initial drag position, sheetContent height and add dragging class to the bottom sheet
   const dragStart = (e) => {
-    document.body.style.overflowY = "hidden";
+    document.body.style.overflow = "hidden";
     isDragging = true;
     startY = e.pageY || e.touches?.[0].pageY;
     startHeight = parseInt(sheetContent.style.height);
@@ -80,7 +80,7 @@ const { title } = Astro.props;
         activeScroll = true;
       }
     }
-    document.body.style.overflowY = activeScroll ? "auto" : "hidden";
+    document.body.style.overflow = activeScroll ? "auto" : "hidden";
   };
 
   dragIcon.addEventListener("mousedown", dragStart);
