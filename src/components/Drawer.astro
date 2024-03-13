@@ -20,7 +20,7 @@ const { title } = Astro.props;
     toTop,
     decision;
   const BREAKPOINTS = {
-    FULL: 99,
+    FULL: 90,
     FULL_TO_DEFAULT: 85,
     DEFAULT: 10,
     DEFAULT_TO_FULL: 20,
@@ -41,6 +41,7 @@ const { title } = Astro.props;
     startY = e.pageY || e.touches?.[0].pageY;
     startHeight = parseInt(sheetContent.style.height);
     bottomSheet.classList.add("dragging");
+    e.preventDefault();
   };
 
   // Calculates the new height for the sheet content and call the updateSheetHeight function
@@ -234,7 +235,7 @@ const { title } = Astro.props;
   .bottom-sheet.fullscreen .content {
     border-radius: 0;
     overflow-y: hidden;
-    height: 99vh !important;
+    height: 90vh !important;
   }
 
   .bottom-sheet .header {
