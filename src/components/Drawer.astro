@@ -100,9 +100,6 @@ const { title } = Astro.props;
   dragIcon.addEventListener("touchstart", dragStart, { passive: false });
   document.addEventListener("touchmove", dragging, { passive: true });
   document.addEventListener("touchend", dragStop, { passive: true });
-  document.ontouchmove = function (e) {
-    e.preventDefault();
-  };
 </script>
 
 <section>
