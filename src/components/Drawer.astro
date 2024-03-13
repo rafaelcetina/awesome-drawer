@@ -37,6 +37,10 @@ const { title } = Astro.props;
   const dragStart = (e) => {
     e.preventDefault();
     document.body.style.overflow = "hidden";
+    document.body.style.touchAction = "none";
+    document.body.style.userSelect = "none";
+    document.body.classList.add("forSafari");
+
     isDragging = true;
     startY = e.pageY || e.touches?.[0].pageY;
     startHeight = parseInt(sheetContent.style.height);
@@ -83,6 +87,9 @@ const { title } = Astro.props;
       }
     }
     document.body.style.overflow = activeScroll ? "auto" : "hidden";
+    document.body.style.touchAction = activeScroll ? "auto" : "none";
+    document.body.style.userSelect = activeScroll ? "auto" : "none";
+    document.body.classList.remove("forSafari");
   };
 
   dragIcon.addEventListener("mousedown", dragStart);
@@ -168,6 +175,10 @@ const { title } = Astro.props;
 </section>
 
 <style>
+  .forSafari::-webkit-scrollbar {
+    width: 0 !important;
+  }
+
   .show-modal {
     outline: none;
     border: none;
