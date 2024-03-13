@@ -20,8 +20,8 @@ const { title } = Astro.props;
     toTop,
     decision;
   const BREAKPOINTS = {
-    FULL: 90,
-    FULL_TO_DEFAULT: 85,
+    FULL: 85,
+    FULL_TO_DEFAULT: 80,
     DEFAULT: 10,
     DEFAULT_TO_FULL: 20,
   };
@@ -217,7 +217,7 @@ const { title } = Astro.props;
     height: 10vh;
     max-width: 1150px;
     padding: 5px 30px;
-    transform: translateY(100vh);
+    transform: translateY(100%);
     border-radius: 24px 24px 0 0;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
     transition: 0.3s ease;
@@ -235,7 +235,7 @@ const { title } = Astro.props;
   .bottom-sheet.fullscreen .content {
     border-radius: 0;
     overflow-y: hidden;
-    height: 90vh !important;
+    height: auto;
   }
 
   .bottom-sheet .header {
