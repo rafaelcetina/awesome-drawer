@@ -35,13 +35,14 @@ const { title } = Astro.props;
 
   // Sets initial drag position, sheetContent height and add dragging class to the bottom sheet
   const dragStart = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     document.body.style.overflow = "hidden";
+    /*
     document.body.style.touchAction = "none";
     document.body.style.userSelect = "none";
     document.body.classList.add("forSafari");
-
+*/
     isDragging = true;
     startY = e.pageY || e.touches?.[0].pageY;
     startHeight = parseInt(sheetContent.style.height);
@@ -50,7 +51,7 @@ const { title } = Astro.props;
 
   // Calculates the new height for the sheet content and call the updateSheetHeight function
   const dragging = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     if (!isDragging) return;
     const DECISION_TRESHOLD = 70;
 
@@ -88,9 +89,11 @@ const { title } = Astro.props;
       }
     }
     document.body.style.overflow = activeScroll ? "auto" : "hidden";
+    /*
     document.body.style.touchAction = activeScroll ? "auto" : "none";
     document.body.style.userSelect = activeScroll ? "auto" : "none";
     document.body.classList.remove("forSafari");
+    */
   };
 
   dragIcon.addEventListener("mousedown", dragStart);
