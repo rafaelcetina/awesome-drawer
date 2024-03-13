@@ -35,6 +35,7 @@ const { title } = Astro.props;
 
   // Sets initial drag position, sheetContent height and add dragging class to the bottom sheet
   const dragStart = (e) => {
+    e.preventDefault();
     document.body.style.overflow = "hidden";
     isDragging = true;
     startY = e.pageY || e.touches?.[0].pageY;
@@ -100,7 +101,7 @@ const { title } = Astro.props;
         <div class="drag-icon">
           <span></span>
         </div>
-        <div>
+        <div class="header-title">
           {title}
         </div>
       </div>
@@ -182,7 +183,6 @@ const { title } = Astro.props;
     background: #2382f6;
   }
   .bottom-sheet {
-    z-index: 100;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -190,7 +190,6 @@ const { title } = Astro.props;
     height: fit-content;
     display: flex;
     opacity: 0;
-    pointer-events: none;
     align-items: center;
     flex-direction: column;
     justify-content: flex-end;
@@ -223,20 +222,25 @@ const { title } = Astro.props;
     transition: 0.3s ease;
     border-bottom: 2px solid #fff;
   }
+
   .bottom-sheet.show .content {
     transform: translateY(0%);
   }
+
   .bottom-sheet.dragging .content {
     transition: none;
   }
+
   .bottom-sheet.fullscreen .content {
     border-radius: 0;
     overflow-y: hidden;
   }
+
   .bottom-sheet .header {
     display: flex;
     justify-content: center;
     user-select: none;
+    pointer-events: auto;
   }
 
   .header {
@@ -251,13 +255,10 @@ const { title } = Astro.props;
   }
 
   .header .drag-icon {
-    cursor: grab;
-    user-select: none;
     padding: 15px;
     margin-top: -5px;
   }
   .header .drag-icon span {
-    user-select: none;
     height: 8px;
     width: 96px;
     display: block;
